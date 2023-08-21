@@ -1,25 +1,25 @@
 const images = [
   {
-    src: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
+    url: "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?dpr=2&h=750&w=1260",
     alt: "White and Black Long Fur Cat",
   },
   {
-    src: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
+    url: "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?dpr=2&h=750&w=1260",
     alt: "Orange and White Koi Fish Near Yellow Koi Fish",
   },
   {
-    src: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
+    url: "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?dpr=2&h=750&w=1260",
     alt: "Group of Horses Running",
   },
 ];
 
-const gallery = document.querySelector("ul.gallery");
+const gallery = document.querySelector(".gallery");
 
-const template = `
-  <li>
-    <img src="${image.src}" alt="${image.alt}"/>
-  </li>
-`;
-for (const images of images) {
-  gallery.insertAdjacentHTML("beforeend", template);
+for (const image of images) {
+  const li = document.createElement("li");
+  const img = document.createElement("img");
+  img.src = image.url;
+  img.alt = image.alt;
+  li.appendChild(img);
+  gallery.appendChild(li);
 }
